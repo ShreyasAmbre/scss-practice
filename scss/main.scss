@@ -1,0 +1,54 @@
+// below are partials below variable file contain only variables is help for larger prooject to keep
+// things seperated
+@import "./variables";
+
+@function weight($weight-name){
+    @return map-get($font-weights, $weight-name)
+};
+
+@mixin FlexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin Mobile() {
+    @media (max-width: $mobile){
+        @content
+    }
+}
+
+body{
+    // below $primary-color and $ font-weights are variable are came from _variables.scss partial file
+    background-color: $primary-color;
+}
+
+.main{
+    @include FlexCenter(row);
+    width: 80%;
+    margin: 0 auto;
+
+    @include Mobile{
+        flex-direction: column;
+    }
+
+    #{&}__para1{
+        // font-weight: map-get($font-weights, bold);
+
+        // below weight() function is called intialized above regular is variable pass as parameter
+        font-weight: weight(regular);
+
+        &:hover{
+            color: red;
+        }
+    }
+
+    #{&}__para2{
+        @extend .main__para1;
+
+        &:hover{
+            color: pink;
+        }
+    }
+}

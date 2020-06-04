@@ -1,0 +1,37 @@
+*************Notes on SASS*******
+1. setup
+    -> Vscode
+        -> Extension :- 1. Live Sass Compiler
+                            -> go to setting-> sass-> format setting using json -> chnage savePath to "/dist/css
+                        2. Live Server
+    -> Create Project Folder
+        SCSS
+            dist
+                index.html
+            scss
+                main.scss
+    Note:- css folder will get created in dist folder after compilation 
+    Note:- Everytime we should edit main.scss it will reflect in main.css in css folder
+
+2. Variables :- we can create variable to store css property in that variable 
+3. Maps :- it similar as object in js which has key:value pair
+4. Nesting :- In this class can contain another element and we can assign scss property to it 
+ex:- .div1{
+        width: 80%;
+        margin: 0 auto
+
+        // p is a element inside div which has class .div1
+        p{
+            font-weight: map-get($font-weights, bold)
+        }
+    }
+5. partials (small files ex:- _variable.scss:- contain ony varibales):- 
+            dividing major scss file in small sperated specific files    
+            Note: - uderscore at start of file name is compulsory otherwise sass compiler will create variable.css in css folder
+
+6. function :- is similar to JS @function function_name(parameter) { @return statement }
+
+7. mixins :- similar to function but, function are used to return values or compute values      
+            mixins should difine styles
+
+8. Extend :- It is use for inherit the parent class style to child class 
